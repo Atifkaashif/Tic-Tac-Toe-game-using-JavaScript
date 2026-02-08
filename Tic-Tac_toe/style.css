@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ff512f, #dd2476);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.container {
+  background: white;
+  padding: 25px;
+  width: 340px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  z-index: 10;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+#status {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 90px);
+  gap: 10px;
+  margin: 20px 0;
+  position: relative;
+}
+
+.cell {
+  width: 90px;
+  height: 90px;
+  font-size: 36px;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  background: #f1f1f1;
+  transition: 0.3s;
+}
+
+.cell:hover {
+  transform: scale(1.05);
+  background: #ddd;
+}
+
+.cell.X { color: #ff512f; }
+.cell.O { color: #dd2476; }
+
+button {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 25px;
+  background: #dd2476;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #ff512f;
+  transform: scale(1.05);
+}
+
+/* Winning Line */
+#win-line {
+  position: absolute;
+  width: 270px;
+  height: 6px;
+  background: #ff512f;
+  border-radius: 5px;
+  display: none;
+}
+
+/* Confetti */
+#confetti-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
